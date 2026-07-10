@@ -2,28 +2,362 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>柯基记账本 - 技术支持</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <title>柯基记账 - 技术支持</title>
+  <style>
+    :root {
+      --blue: #4a7ded;
+      --blue-dark: #315fc4;
+      --ink: #17181d;
+      --muted: #696d76;
+      --line: #e7eaf0;
+      --soft: #f6f8fc;
+      --card: #ffffff;
+      --green: #2f9f68;
+      --red: #f05252;
+      --radius: 18px;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(180deg, #eef4ff 0%, #ffffff 280px);
+      font-size: 16px;
+      line-height: 1.72;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      width: min(960px, 100%);
+      margin: 0 auto;
+      padding: 24px 18px 44px;
+    }
+
+    .hero {
+      padding: 34px 0 22px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border: 1px solid rgba(74, 125, 237, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(32px, 8vw, 54px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 740px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .button.primary {
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 0 14px 28px rgba(74, 125, 237, 0.25);
+    }
+
+    .button.secondary {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--blue-dark);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .card,
+    .quick {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 18px 48px rgba(33, 50, 84, 0.08);
+    }
+
+    .card {
+      padding: 22px;
+    }
+
+    .quick {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      background: var(--line);
+    }
+
+    .quick-item {
+      padding: 18px;
+      background: #fff;
+    }
+
+    .quick-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    .quick-item span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 18px 0 8px;
+      font-size: 17px;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    ol,
+    ul {
+      margin: 10px 0 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    .callout {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--blue);
+      border-radius: 12px;
+      background: var(--soft);
+      color: #39404d;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 4px;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .footer {
+      margin-top: 22px;
+      padding: 20px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 760px) {
+      body {
+        background: linear-gradient(180deg, #eef4ff 0%, #ffffff 220px);
+      }
+
+      .page {
+        padding: 18px 14px 34px;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .grid,
+      .quick {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 18px;
+        border-radius: 16px;
+      }
+
+      .actions {
+        display: grid;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>柯基记账本 - 技术支持</h1>
+  <main class="page">
+    <section class="hero">
+      <div class="eyebrow">柯基记账 Support</div>
+      <h1>技术支持</h1>
+      <p class="lead">如果你在使用柯基记账时遇到问题，欢迎联系开发者。这里也整理了记账、备份、恢复、导入导出和会员订阅的常见说明。</p>
+      <div class="actions">
+        <a class="button primary" href="mailto:brucewhf@126.com?subject=%E6%9F%AF%E5%9F%BA%E8%AE%B0%E8%B4%A6%E6%8A%80%E6%9C%AF%E6%94%AF%E6%8C%81">发送邮件</a>
+        <a class="button secondary" href="./privacy.html">查看隐私政策</a>
+        <a class="button secondary" href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">使用条款</a>
+      </div>
+    </section>
 
-  <p>如果你在使用柯基记账本时遇到问题，可以通过以下方式联系开发者。</p>
+    <section class="quick" aria-label="快速信息">
+      <div class="quick-item">
+        <strong>支持邮箱</strong>
+        <span>brucewhf@126.com</span>
+      </div>
+      <div class="quick-item">
+        <strong>数据位置</strong>
+        <span>账单默认保存在设备本地</span>
+      </div>
+      <div class="quick-item">
+        <strong>会员订阅</strong>
+        <span>由 Apple StoreKit 管理</span>
+      </div>
+    </section>
 
-  <h2>支持邮箱</h2>
-  <p>Email: brucewhf@126.com</p>
+    <section class="grid">
+      <article class="card">
+        <h2>联系开发者</h2>
+        <p>请尽量在邮件中附上问题描述、设备型号、iOS 版本、App 版本，以及你操作到哪一步出现问题。这样更容易定位和修复。</p>
+        <p><a href="mailto:brucewhf@126.com">brucewhf@126.com</a></p>
+        <div class="status"><span class="dot"></span><span>我们会尽量尽快回复</span></div>
+      </article>
 
-  <h2>常见问题</h2>
+      <article class="card">
+        <h2>App 是做什么的</h2>
+        <p>柯基记账是一款简洁的 iOS 个人记账 App，支持新增和编辑账单、明细查看、账单详情、分类管理、搜索、统计、导入导出和 iCloud 备份恢复。</p>
+        <p>未订阅时仍可查看已有账单、搜索、统计、导入和导出数据；会员订阅用于解锁新增和编辑记账记录。</p>
+      </article>
 
-  <h3>1. App 是否需要联网？</h3>
-  <p>不需要。柯基记账本为本地记账 App，账单数据保存在设备本地。</p>
+      <article class="card">
+        <h2>如何找到订阅入口</h2>
+        <p>如果你想开通会员，可以按以下步骤进入订阅页：</p>
+        <ol>
+          <li>打开 App。</li>
+          <li>点击底部中间的「记账」。</li>
+          <li>选择任意支出或收入分类。</li>
+          <li>输入任意金额，例如 1。</li>
+          <li>点击「完成」。</li>
+          <li>如果当前 Apple ID 没有有效会员，App 会展示会员订阅页。</li>
+        </ol>
+        <div class="callout">设置页里的「管理订阅」用于管理或取消已有订阅；购买订阅会在保存新增或编辑账单时触发。</div>
+      </article>
 
-  <h3>2. App 是否会上传我的账单？</h3>
-  <p>不会。App 不上传账单数据，不收集用户个人信息。</p>
+      <article class="card">
+        <h2>管理或取消订阅</h2>
+        <p>订阅由 Apple 处理。你可以通过以下任一方式管理：</p>
+        <ul>
+          <li>在 App 的「设置」中点击「管理订阅」。</li>
+          <li>打开 iPhone「设置」- Apple ID -「订阅」。</li>
+        </ul>
+        <p>取消订阅后，当前已付费周期结束前仍可继续使用会员功能。</p>
+      </article>
 
-  <h3>3. 删除 App 后数据还在吗？</h3>
-  <p>如果删除 App，本地数据可能会随 App 一起删除。请在删除前确认是否已经导出或备份重要数据。</p>
+      <article class="card">
+        <h2>iCloud 备份与恢复</h2>
+        <p>iCloud 备份默认关闭。你可以在 App「设置」-「iCloud 备份/恢复」中手动开启，然后进行立即备份或恢复历史备份。</p>
+        <ul>
+          <li>自动备份会在有数据变更并进入后台时尝试执行。</li>
+          <li>新备份使用压缩文件保存，旧 JSONL 备份仍可兼容恢复。</li>
+          <li>恢复备份会覆盖当前数据，请先确认备份内容。</li>
+        </ul>
+      </article>
 
-  <p><a href="./index.html">返回首页</a></p>
+      <article class="card">
+        <h2>导入与导出</h2>
+        <p>首页左上角提供导入和导出入口。导出会生成完整备份文件，便于保存或迁移；导入支持合并导入和覆盖导入。</p>
+        <p>如果要更换设备或删除 App，建议先导出一份备份文件，或确认 iCloud 备份已经成功。</p>
+      </article>
+
+      <article class="card">
+        <h2>常见问题</h2>
+        <h3>App 会上传我的账单吗？</h3>
+        <p>不会上传到开发者服务器。账单默认保存在本机；只有你手动开启 iCloud 备份后，备份文件才会写入你的 Apple iCloud 容器。</p>
+
+        <h3>为什么我不能保存新账单？</h3>
+        <p>新增和编辑账单需要有效会员订阅。如果你已经订阅，请尝试进入订阅页点击「恢复购买」，或在设置页进入「管理订阅」确认订阅状态。</p>
+
+        <h3>删除 App 后数据还在吗？</h3>
+        <p>删除 App 可能会同时删除本地数据。删除前请先导出备份，或确认 iCloud 备份已经完成。</p>
+      </article>
+
+      <article class="card">
+        <h2>反馈建议</h2>
+        <p>如果你希望增加新的导出格式、统计方式、分类图标或其他记账功能，也欢迎通过邮件告诉我们。</p>
+        <p>为了保护隐私，反馈时请不要发送银行卡号、支付密码、身份证号等敏感信息。</p>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <div>最后更新：2026 年 7 月 10 日</div>
+      <div class="footer-links">
+        <a href="./privacy.html">隐私政策</a>
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple 标准使用条款（EULA）</a>
+      </div>
+    </footer>
+  </main>
 </body>
 </html>

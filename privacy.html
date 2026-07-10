@@ -2,29 +2,309 @@
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>柯基记账本 - 隐私政策</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <title>柯基记账 - 隐私政策</title>
+  <style>
+    :root {
+      --blue: #4a7ded;
+      --ink: #17181d;
+      --muted: #696d76;
+      --line: #e7eaf0;
+      --soft: #f6f8fc;
+      --card: #ffffff;
+      --green: #2f9f68;
+      --radius: 18px;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: linear-gradient(180deg, #eef4ff 0%, #ffffff 280px);
+      font-size: 16px;
+      line-height: 1.72;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      width: min(920px, 100%);
+      margin: 0 auto;
+      padding: 24px 18px 44px;
+    }
+
+    .hero {
+      padding: 34px 0 20px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 6px 10px;
+      border: 1px solid rgba(74, 125, 237, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(32px, 8vw, 54px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 20px 0 28px;
+    }
+
+    .summary-item,
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 18px 48px rgba(33, 50, 84, 0.08);
+    }
+
+    .summary-item {
+      padding: 16px;
+    }
+
+    .summary-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    .summary-item span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .content {
+      display: grid;
+      gap: 16px;
+    }
+
+    .card {
+      padding: 22px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 20px 0 8px;
+      font-size: 17px;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    .note {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--blue);
+      border-radius: 12px;
+      background: var(--soft);
+      color: #39404d;
+    }
+
+    .badge {
+      display: inline-flex;
+      margin: 0 6px 8px 0;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #eef4ff;
+      color: #315fc4;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .footer {
+      margin-top: 22px;
+      padding: 20px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 680px) {
+      body {
+        background: linear-gradient(180deg, #eef4ff 0%, #ffffff 220px);
+      }
+
+      .page {
+        padding: 18px 14px 34px;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .summary {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 18px;
+        border-radius: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>柯基记账本 - 隐私政策</h1>
+  <main class="page">
+    <section class="hero">
+      <div class="eyebrow">柯基记账 Privacy Policy</div>
+      <h1>隐私政策</h1>
+      <p class="lead">柯基记账是一款面向个人使用的 iOS 记账 App。我们尽量让数据留在你的设备上，不接入广告，不建立开发者账号系统，也不会把你的账单上传到开发者服务器。</p>
+    </section>
 
-  <p>更新日期：2026 年 7 月 2 日</p>
+    <section class="summary" aria-label="隐私摘要">
+      <div class="summary-item">
+        <strong>本地优先</strong>
+        <span>账单、分类、备注默认保存在你的设备本地。</span>
+      </div>
+      <div class="summary-item">
+        <strong>不投放广告</strong>
+        <span>不接入广告 SDK，不为广告目的跟踪用户。</span>
+      </div>
+      <div class="summary-item">
+        <strong>可选备份</strong>
+        <span>iCloud 备份需要你在 App 内手动开启。</span>
+      </div>
+    </section>
 
-  <h2>1. 数据存储</h2>
-  <p>柯基记账本是一款本地记账 App。用户录入的账单、分类、备注等数据保存在用户设备本地。</p>
+    <section class="content">
+      <article class="card">
+        <h2>1. 我们处理哪些数据</h2>
+        <p>你在柯基记账中创建的数据可能包括账单金额、收支类型、分类、日期、时间、备注、分类名称、分类图标，以及用于统计和搜索的本地记录。</p>
+        <p>这些数据用于提供记账、明细查看、账单详情、搜索、统计、分类管理、导入导出和备份恢复等功能。</p>
+        <div>
+          <span class="badge">账单</span>
+          <span class="badge">分类</span>
+          <span class="badge">备注</span>
+          <span class="badge">统计</span>
+          <span class="badge">备份文件</span>
+        </div>
+      </article>
 
-  <h2>2. 数据收集</h2>
-  <p>本 App 不收集用户个人信息，不上传账单数据，不进行账号登录，不向第三方共享用户数据。</p>
+      <article class="card">
+        <h2>2. 本地存储</h2>
+        <p>账单、分类和备注默认通过 iOS 本地存储保存在你的设备中。我们不会运营自己的账号系统，也不会把这些数据上传到开发者自有服务器。</p>
+        <p>如果你删除 App，设备上的本地数据可能会被系统一并删除。建议在删除 App 或更换设备前，先使用 App 内的导出或 iCloud 备份功能保存重要数据。</p>
+      </article>
 
-  <h2>3. 网络连接</h2>
-  <p>本 App 不依赖网络服务运行。</p>
+      <article class="card">
+        <h2>3. iCloud 备份</h2>
+        <p>iCloud 备份默认关闭。只有当你在 App 的「设置」中手动开启 iCloud 备份后，App 才会在你主动备份或有数据变更并进入后台时，将备份文件写入你的 Apple iCloud 容器。</p>
+        <p>备份文件用于跨设备恢复，当前以压缩备份文件保存，内部包含账单和分类数据。iCloud 由 Apple 提供和管理，备份数据与你的 Apple ID、iCloud 设置和设备权限相关。</p>
+        <div class="note">开发者无法登录你的 Apple ID，也不能直接读取你的 iCloud 账户内容。你可以随时在 App 内关闭 iCloud 备份。</div>
+      </article>
 
-  <h2>4. 数据删除</h2>
-  <p>用户可以在 App 内删除账单数据。删除 App 也可能导致本地数据被删除。</p>
+      <article class="card">
+        <h2>4. 导入、导出与分享</h2>
+        <p>App 支持导出完整备份文件，也支持导入备份文件进行合并或覆盖恢复。导入和导出都由你主动触发。</p>
+        <p>当你通过系统分享面板、文件选择器或其他 App 处理备份文件时，相关文件会按照 iOS 系统和你选择的目标 App 的规则处理。请只把备份文件分享给你信任的位置。</p>
+      </article>
 
-  <h2>5. 联系方式</h2>
-  <p>如有隐私相关问题，请联系：brucewhf@126.com</p>
+      <article class="card">
+        <h2>5. 订阅与付款</h2>
+        <p>柯基记账使用 Apple StoreKit 提供会员订阅能力。订阅购买、续期、取消、退款和付款信息由 Apple 处理。</p>
+        <p>我们不会获取你的银行卡号、支付密码或完整 Apple ID 付款信息。App 只会通过 StoreKit 判断当前设备上的订阅权益是否有效，以决定是否允许保存新增或编辑后的账单。</p>
+        <p>你可以在 iPhone「设置」- Apple ID -「订阅」中管理或取消订阅。</p>
+      </article>
 
-  <p><a href="./index.html">返回首页</a></p>
+      <article class="card">
+        <h2>6. 网络、权限与第三方服务</h2>
+        <p>柯基记账的核心记账功能不依赖开发者服务器。App 不接入广告 SDK，不使用第三方分析 SDK，不主动索取通讯录、定位、相机、麦克风等隐私权限。</p>
+        <ul>
+          <li>iCloud 备份会使用 Apple 的 iCloud 服务和网络能力。</li>
+          <li>订阅购买和恢复购买会使用 Apple 的 App Store / StoreKit 服务。</li>
+          <li>打开隐私政策、使用条款或技术支持链接时，会通过浏览器访问对应网页。</li>
+          <li>导入和导出文件时，会使用 iOS 系统文件选择和分享能力。</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>7. 数据删除与控制</h2>
+        <p>你可以在 App 内删除账单记录；空分类也可以在分类管理中删除。你也可以通过覆盖导入恢复一份备份数据。</p>
+        <p>如需清除设备上的本地数据，可以删除 App。若你开启过 iCloud 备份，还需要根据自己的 iCloud 设置或 App 内备份管理情况处理云端备份文件。</p>
+      </article>
+
+      <article class="card">
+        <h2>8. 儿童隐私</h2>
+        <p>柯基记账不是专门面向儿童设计的产品。我们不会有意收集儿童个人信息，也不会提供广告追踪功能。</p>
+      </article>
+
+      <article class="card">
+        <h2>9. 政策更新</h2>
+        <p>如果 App 功能或数据处理方式发生变化，我们可能更新本隐私政策。更新后的版本会发布在本页面，并更新页面底部的日期。</p>
+      </article>
+
+      <article class="card">
+        <h2>10. 联系我们</h2>
+        <p>如果你对隐私政策、数据处理或 App 使用有任何问题，可以通过以下邮箱联系开发者：</p>
+        <p><a href="mailto:brucewhf@126.com">brucewhf@126.com</a></p>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <div>最后更新：2026 年 7 月 10 日</div>
+      <div class="footer-links">
+        <a href="./support.html">技术支持</a>
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple 标准使用条款（EULA）</a>
+      </div>
+    </footer>
+  </main>
 </body>
 </html>
